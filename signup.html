@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Landing.html">Home</a></li>
+                <li><a href="product.html">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h1>Create an Account</h1>
+
+        <form action="account.html" method="POST">
+            <label for="fname">Full Name:</label><br>
+            <input type="text" id="fname" name="fullname" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="pass">Password:</label><br>
+            <input type="password" id="pass" name="password" minlength="8" required><br><br>
+
+            <label for="confirm">Confirm Password:</label><br>
+            <input type="password" id="confirm" name="confirm_password" required><br><br>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+    </main>
+
+</body>
+</html>
