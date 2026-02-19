@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -11,58 +12,28 @@
             <ul>
                 <li><a href="Landing.html">Home</a></li>
                 <li><a href="product.html">Shop</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="signup.html">Account</a></li>
             </ul>
         </nav>
     </header>
-
     <hr>
 
     <main>
         <h1>Checkout</h1>
-
-        <form action="success.html" method="POST">
-            
+        <form action="success.html" method="GET">
             <section>
                 <fieldset>
                     <legend>Shipping Address</legend>
-                    
-                    <label for="name">Full Name:</label><br>
-                    <input type="text" id="name" name="fullname" required><br><br>
-
-                    <label for="street">Street Address:</label><br>
-                    <input type="text" id="street" name="address" required><br><br>
-
-                    <label for="zip">Zip Code:</label><br>
-                    <input type="text" id="zip" name="zipcode" required><br><br>
+                    <label>Full Name: <input type="text" required></label><br><br>
+                    <label>Address: <input type="text" required></label><br><br>
                 </fieldset>
             </section>
-
-            <br>
-
-            <section>
-                <h3>Payment Method</h3>
-                
-                <input type="radio" id="cc" name="payment" value="credit_card" checked>
-                <label for="cc">Credit Card</label><br>
-
-                <input type="radio" id="paypal" name="payment" value="paypal">
-                <label for="paypal">PayPal</label>
-            </section>
-
-            <br>
-
+            
             <aside>
-                <h3>Order Summary</h3>
-                <p><strong>Subtotal:</strong> $155.00</p>
-                <p><strong>Shipping:</strong> $10.00</p>
-                <p><strong>Tax:</strong> $15.50</p>
-                <hr>
-                <h2>Total: $180.50</h2>
-                
+                <h3>Total: $180.50</h3>
                 <button type="submit">Place Order</button>
             </aside>
-
         </form>
     </main>
 

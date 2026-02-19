@@ -1,0 +1,314 @@
+/* ==========================================
+   Global Variables (Colors)
+   ========================================== */
+:root {
+    --primary-color: #2c3e50; /* Dark blue/gray for headings */
+    --accent-color: #e67e22;  /* Orange for buttons/links */
+    --bg-light: #f4f4f4;      /* Light gray background */
+    --bg-white: #ffffff;      /* White for content areas */
+    --text-main: #333333;     /* Dark gray for standard text */
+}
+
+/* ==========================================
+   Global Typography & Body Styles
+   ========================================== */
+body {
+    /* Sans-serif for main text */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   Headings (Serif/Bold)
+   ========================================== */
+h1, h2, h3 {
+    /* Distinct serif font for headings */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: normal; /* Letting the serif font stand out */
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* ==========================================
+   Basic Elements (Optional but helpful for visibility)
+   ========================================== */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--bg-white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit; /* Matches body font */
+}
+
+button:hover {
+    background-color: #d35400; /* Slightly darker orange */
+}
+
+
+
+
+
+/* ==========================================
+   Task 2: Interactive States & Transitions
+   ========================================== */
+
+/* 1 & 2: Remove default underline and add smooth transitions */
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    /* Smooth transition for color and underline over 0.3 seconds */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* 3: Hover effect for navigation links */
+nav a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* 2: Smooth transition for buttons */
+button {
+    /* Keeping the transition smooth for background color and the "pressed" scale effect */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* 3: Hover effect for buttons (already slightly in Task 1, but reinforcing here) */
+button:hover {
+    background-color: #d35400; /* Darker orange */
+}
+
+/* 4: Active state to give buttons a "pressed" physical effect */
+button:active {
+    background-color: #a84300; /* Even darker orange */
+    transform: scale(0.95);    /* Shrinks the button just a tiny bit when clicked */
+}
+
+/* 5: Focus states for inputs and buttons (for keyboard users) */
+input:focus, 
+button:focus, 
+select:focus {
+    /* Adds a clean orange outline when you click or tab into a text box or button */
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Just adding a little padding to inputs so they don't look too squished */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: outline 0.3s ease;
+}
+
+
+
+/* ==========================================
+   Task 3: Product List Styling (Cards)
+   ========================================== */
+
+/* 1 & 2: Inline-block, specific width, and card styling */
+main article {
+    /* Temporarily align products side-by-side */
+    display: inline-block;
+    width: 30%;          /* Makes them take up roughly 1/3 of the screen */
+    margin: 1%;          /* Gives them breathing room so they don't touch */
+    vertical-align: top; /* Keeps them aligned at the top */
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+
+    /* Card appearance */
+    background-color: var(--bg-white);
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    
+    /* Optional: A tiny shadow makes them look like actual cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Make sure the images don't overflow outside the card boundaries */
+main article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 3: Alternating background colors using :nth-child(even) */
+main article:nth-child(even) {
+    /* Gives every 2nd card a very light orange tint (based on your accent color) */
+    background-color: #fdf3eb; 
+}
+
+
+
+/* ==========================================
+   Task 4: Advanced Selectors & Pseudo-elements
+   ========================================== */
+
+/* 1: :empty pseudo-class for the cart */
+/* If the <ul> inside the cart has zero items inside it, it turns into this dashed box */
+#cart-items ul:empty {
+    padding: 40px;
+    background-color: #ffeaea;
+    border: 2px dashed #ff4444;
+    display: block;
+}
+
+/* 2: ::before to add a currency symbol automatically */
+.price::before {
+    content: "$"; /* You can change this to "₱" if you want */
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-right: 2px;
+}
+
+/* 3: Form Validation pseudo-classes for the signup page */
+
+/* Gives mandatory fields a thick orange line on the left so users know they MUST fill it */
+input:required {
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Once the user types in valid info (like a proper email format), the border turns green! */
+input:required:valid {
+    border-color: #2ecc71; /* A nice success green */
+    border-left: 4px solid #2ecc71;
+    background-color: #f9fff9; /* Very light green background */
+}
+
+
+
+
+/* ==========================================
+   Task 5: Detailed Data Styling
+   ========================================== */
+
+/* 1: Style the table and use :first-child for the first column */
+table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse; /* Removes the double borders between cells */
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/* Targets the first <td> or <th> in every table row */
+td:first-child, 
+th:first-child {
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: #eef2f5; /* Slight gray/blue background to stand out */
+    width: 40%;
+}
+
+
+/* 2: ::marker to change the bullet points in the account order history */
+/* Specifically targets list items inside the <details> tag */
+details ul li::marker {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+
+/* 3: ::before and ::after for stylized quotation marks in reviews */
+blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 10px 0 20px 20px;
+}
+
+/* Injects a giant orange quote before the text */
+blockquote::before {
+    content: "\201C"; /* CSS code for left double quote */
+    color: var(--accent-color);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0;
+    vertical-align: bottom;
+}
+
+/* Injects a giant orange quote after the text */
+blockquote::after {
+    content: "\201D"; /* CSS code for right double quote */
+    color: var(--accent-color);
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 0;
+    vertical-align: bottom;
+}
+
+
+/* ==========================================
+   Layout Fixes: Centering (STRICTLY INLINE-BLOCK/TEXT-ALIGN)
+   ========================================== */
+
+/* Center the text globally, which forces inline-block elements to the middle */
+body {
+    text-align: center; 
+}
+
+/* Make the main content area an inline-block so the body's text-align centers it */
+main {
+    display: inline-block;
+    text-align: left; /* Resets the text inside back to normal left-aligned */
+    width: 90%;       /* Basic dimension, keeps it from touching the screen edges */
+}
+
+/* Center the Header */
+header {
+    text-align: center;
+}
+
+/* Replace Flexbox with inline-block for the navigation */
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block; /* <--- Exactly what your constraint asked for! */
+    margin-right: 20px;
+}
+
+/* Keep the titles centered */
+h1 {
+    text-align: center;
+}

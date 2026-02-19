@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,54 +13,35 @@
                 <li><a href="Landing.html">Home</a></li>
                 <li><a href="product.html">Shop</a></li>
                 <li><a href="cart.html">Cart</a></li>
+                <li><a href="signup.html">Account</a></li>
+
             </ul>
         </nav>
     </header>
-
     <hr>
 
     <main>
         <h1>Your Shopping Cart</h1>
 
-        <section id="empty-state">
-            <p>Your cart is currently empty.</p>
-            <a href="product.html">Start Shopping</a>
-        </section>
-
-        <hr>
-
         <section id="cart-items">
             <ul>
                 <li>
-                    <img src="images/monitor.png" alt="Monitor" height="100" width="100">
                     <h3>24" Gaming Monitor</h3>
                     <p>$120.00</p>
-                    <label>Qty:</label> 
-                    <input type="number" value="1" min="1">
-                    <button>Remove</button>
+                    <label>Qty:</label> <input type="number" value="1" min="1">
                 </li>
-
                 <li>
-                    <img src="images/mouse.jpg" alt="Mouse" height="100" width="100">
                     <h3>Gaming Mouse</h3>
                     <p>$35.00</p>
-                    <label>Qty:</label> 
-                    <input type="number" value="1" min="1">
-                    <button>Remove</button>
+                    <label>Qty:</label> <input type="number" value="1" min="1">
                 </li>
             </ul>
         </section>
 
-        <hr>
-
         <section id="cart-summary">
             <h3>Subtotal: $155.00</h3>
-            
-            <a href="checkout.html">
-                <button>Proceed to Checkout</button>
-            </a>
+            <a href="checkout.html"><button>Proceed to Checkout</button></a>
         </section>
-
     </main>
 
 </body>
