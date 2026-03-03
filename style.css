@@ -1,4 +1,4 @@
-/* --- Color Palette --- */
+/* --- Variables / Colors --- */
 :root {
     --primary-color: #2c3e50;
     --accent-color: #e67e22; 
@@ -7,7 +7,7 @@
     --text-main: #333333;     
 }
 
-/* --- Base Typography --- */
+/* --- Base resets & typography --- */
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-light);
@@ -17,237 +17,260 @@ body {
     padding: 0;
 }
 
-/* Headers - keeping it serif so it pops */
 h1, h2, h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: var(--primary-color);
-    line-height: 1.2;
     margin-bottom: 0.5rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: normal; 
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-/* --- Links & Buttons --- */
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button {
-    background-color: var(--accent-color);
-    color: var(--bg-white);
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-}
-
-/* Hover and click effects */
-button:hover {
-    background-color: #d35400;
-}
-
-button:active {
-    background-color: #a84300; 
-    transform: scale(0.95); /* little squish effect */
-}
-
-/* Clean up nav links and animate them */
-nav a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* Focus rings for keyboard accessibility */
-input:focus, 
-button:focus, 
-select:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 3px;
-}
-
-/* Pad out the form inputs so they aren't cramped */
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-input[type="number"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: outline 0.3s ease;
-}
-
-
-/* --- Product Cards --- */
-
-/* Fake grid using inline-block per project constraints */
-main article {
-    display: inline-block;
-    width: 30%;          
-    margin: 1%;          
-    vertical-align: top; 
-    box-sizing: border-box; 
-    background-color: var(--bg-white);
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Make sure large images don't break the card layout */
-main article img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* Alternating card colors */
-main article:nth-child(even) {
-    background-color: #fdf3eb; 
-}
-
-
-/* --- Pseudo-classes & Elements --- */
-
-/* Show this dashed box if the cart is completely empty */
-#cart-items ul:empty {
-    padding: 40px;
-    background-color: #ffeaea;
-    border: 2px dashed #ff4444;
-    display: block;
-}
-
-/* Auto-inject the currency symbol */
-.price::before {
-    content: "$"; 
-    font-weight: bold;
-    color: var(--accent-color);
-    margin-right: 2px;
-}
-
-/* Form Validation highlights */
-input:required {
-    border-left: 4px solid var(--accent-color);
-}
-
-/* Turn green when the user types it right */
-input:required:valid {
-    border-color: #2ecc71; 
-    border-left: 4px solid #2ecc71;
-    background-color: #f9fff9; 
-}
-
-
-/* --- Tables & Lists --- */
-
-/* Basic table reset */
-table {
-    width: 100%;
-    max-width: 500px;
-    border-collapse: collapse; 
-    margin-top: 10px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-/* Highlight the first column */
-td:first-child, 
-th:first-child {
-    font-weight: bold;
-    color: var(--primary-color);
-    background-color: #eef2f5; 
-    width: 40%;
-}
-
-/* Custom bullet colors for the order history details */
-details ul li::marker {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-}
-
-/* Add big quotation marks to reviews */
-blockquote {
-    font-style: italic;
-    color: #555;
-    margin: 10px 0 20px 20px;
-}
-
-blockquote::before {
-    content: "\201C"; 
-    color: var(--accent-color);
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 0;
-    vertical-align: bottom;
-}
-
-blockquote::after {
-    content: "\201D"; 
-    color: var(--accent-color);
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 0;
-    vertical-align: bottom;
-}
-
-
-/* --- Layout Fixes: Centering hack (Strictly inline-block) --- */
-
-body {
-    text-align: center; 
-}
-
-main {
-    display: inline-block;
-    text-align: left; /* reset text so paragraphs aren't centered */
-    width: 90%;       
-}
-
+/* --- Header Layout (Mobile first so it stacks) --- */
 header {
-    text-align: center;
+    background-color: var(--bg-white);
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
 nav ul {
     list-style: none;
-    text-align: center;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-nav li {
-    display: inline-block; 
-    margin-right: 20px;
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
-h1 {
+/* --- Product Grid (Starts as 1 col on mobile) --- */
+main {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product cards */
+article {
+    background: var(--bg-white);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* --- Internal Layouts --- */
+
+/* Cart horizontal rows */
+#cart-items ul { list-style: none; padding: 0; }
+#cart-items li {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-white);
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Center the Hero text */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+    text-align: center;
+    min-height: 300px;
+    background: #eef2f5;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Buttons & Inputs */
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+}
+
+
+/* --- Tablet Breakpoint (481px+) --- */
+@media (min-width: 481px) {
+    nav ul {
+        flex-direction: row; 
+        gap: 20px;
+    }
+
+    main {
+        grid-template-columns: repeat(2, 1fr); /* bump to 2 cols */
+    }
+}
+
+/* --- Desktop Breakpoint (769px+) --- */
+@media (min-width: 769px) {
+    
+    /* Header side-by-side */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 40px;
+    }
+
+    /* 4 cols for products */
+    main {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+
+    /* Split checkout form */
+    main form {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    
+    main form section { flex: 2; } 
+    main form aside { flex: 1; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+}
+
+
+/* --- Responsive Media & Tables --- */
+
+/* Keep images from breaking the screen width */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+/* Mobile table horizontal scrolling */
+.table-container {
+    width: 100%;
+    overflow-x: auto; 
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 300px; 
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+
+/* --- Sidebar Layout --- */
+
+/* Mobile stacks naturally */
+.product-layout {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    padding: 20px;
+}
+
+aside {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left; 
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+}
+
+/* Desktop Sidebar Breakpoint */
+@media (min-width: 769px) {
+    .product-layout {
+        grid-template-columns: 25% 1fr; /* sidebar gets 25% width */
+        align-items: start; 
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+
+/* --- Animations (Task 7) --- */
+
+/* Fade up keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button pulse keyframes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Animate cards on load */
+article {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Animate button on hover */
+button:hover {
+    background-color: #d35400; 
+    animation: pulse 0.4s ease-in-out;
 }
